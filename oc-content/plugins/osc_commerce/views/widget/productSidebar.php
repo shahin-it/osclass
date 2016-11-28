@@ -1,0 +1,1 @@
+<div class="ec-widget slidebar-widget product"><?php echo $model["products"]?></div>

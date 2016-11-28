@@ -1,0 +1,1 @@
+ALTER TABLE `#DB_TABLE_PREFIX#t_item` DROP COLUMN `s_item_condition`;

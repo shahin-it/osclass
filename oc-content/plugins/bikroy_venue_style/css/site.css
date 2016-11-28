@@ -1,0 +1,3 @@
+.add_item form #post-hooks #plugin-hook .meta_list .meta .selector {
+    width: 100% !important;
+}

@@ -1,0 +1,63 @@
+.create-edit-form {
+    margin: 20px;
+}
+.form-row {
+    margin-bottom: 20px;
+}
+.form-row input[type=checkbox] {
+    transform: scale(1.5);
+    margin: 4px;
+}
+.form-row input, .form-row textarea, .form-row select {
+    border-color: rgb(169, 169, 169);
+    border-width: 1px;
+    font-size: 14px;
+}
+.form-row select {
+    width: 100%;
+    height: 30px;
+}
+.form-row textarea {
+    width: calc(100% - 14px);
+    height: 100px;
+}
+.form-row label {
+    font-size: 18px!important;
+    display: block;
+}
+
+.sui-table table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+.sui-table table th, .sui-table table td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+.sui-table table tr:nth-child(even){
+    background-color: #f2f2f2
+}
+
+.actions-column .navigator > *{
+    margin-left: 3px;
+}
+.actions-column .navigator{
+}
+.tab-toolbar {
+    display: flex;
+ }
+.tab-toolbar .tool-right {
+    float: right;
+    right: 45px;
+    position: absolute;
+}
+.sui-single-tab .sui-table {
+    margin: 5px;
+    margin-top: 15px;
+}
+.sui-file-chooser {
+
+}

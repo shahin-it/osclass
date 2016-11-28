@@ -1,0 +1,1 @@
+ALTER TABLE `#DB_TABLE_PREFIX#t_item` ADD `s_item_condition` VARCHAR(4) default 'new';

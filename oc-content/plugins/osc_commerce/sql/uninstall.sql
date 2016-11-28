@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS `/*TABLE_PREFIX*/t_ec_product`;
+DROP TABLE IF EXISTS `/*TABLE_PREFIX*/t_ec_category`;
+DROP TABLE IF EXISTS `/*TABLE_PREFIX*/t_ec_payment`;
+DROP TABLE IF EXISTS `/*TABLE_PREFIX*/t_ec_order_item`;
+DROP TABLE IF EXISTS `/*TABLE_PREFIX*/t_ec_order`;

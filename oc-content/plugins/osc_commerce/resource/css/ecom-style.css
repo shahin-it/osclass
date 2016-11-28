@@ -1,0 +1,109 @@
+@import 'font-awesome.min.css';
+.navigator i.fa, .actions .fa, .action.fa {
+    cursor: pointer;
+    font-size: 15px;
+}
+.navigator i.fa:hover, button i.fa:hover, a i.fa:hover, .actions .fa:hover, .action.fa:hover {
+    color: #00b3c1;
+}
+.color-red {
+    color: red;
+}
+.color-green {
+    color: green;
+}
+.sui-overlay {
+    background-color: rgba(0,0,0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+.sui-overlay.loader {
+    background-image: url("../image/loader.gif");
+    background-position-x: 48%;
+    background-position-y: 48%;
+    background-repeat: no-repeat;
+}
+.notification-popup {
+    position: fixed;
+    left: 35%;
+    max-width: 350px;
+    top: 10%;
+    background-color: #ffffff;
+    border-radius: 2px;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+.notification-popup.success {
+    background-color: #456cd9;
+    color: white;
+}
+.notification-popup.success .icon {
+    color: white;
+}
+.notification-popup.error {
+    background-color: #d91228;
+    color: white;
+}
+.notification-popup.alert {
+    background-color: #d98417;
+    color: white;
+}
+.notification-popup .body {
+    padding: 0 5px 0 5px;
+}
+.notification-popup .title-bar {
+    height: 0;
+}
+.notification-popup p {
+    display: inline-block;
+    padding-left: 5px;
+}
+.notification-popup .icon {
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 10px;
+}
+.notification-popup .close-popup {
+    position: absolute;
+    right: -5px;
+    top: -8px;
+    border-radius: 7px;
+}
+.notification-popup .close-popup:hover {
+    cursor: pointer;
+}
+@-webkit-keyframes thumb {
+    0% { -webkit-transform: scale(1); }
+    50% { -webkit-transform: scale(0.9); }
+    100% { -webkit-transform: scale(1); }
+}
+
+.shake-out {
+    -webkit-animation-name: thumb;
+    -webkit-animation-duration: 200ms;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: linear;
+}
+input.quantity-spinner {
+    max-width: 40px;
+    min-height: 20px;
+}
+
+/*accordion*/
+
+.sui-accordion-panel .sui-accordion-item {
+    display: none;
+}
+.sui-accordion-panel .sui-accordion-item.expanded {
+}
+.sui-accordion-panel .sui-accordion-label {
+    cursor: pointer;
+}
