@@ -1,1 +1,4 @@
-<div class="ec-widget slidebar-widget product"><?php echo $model["products"]?></div>
+<?php echo $model["products"]?>
+<div class="ec-widget slidebar-widget product">
+
+</div>

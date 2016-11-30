@@ -35,6 +35,9 @@ class site extends BaseModel
             case "home":
                 $this->doView(PLUGIN_VIEW . "pages/home.php", array("cartObj"=>$cartObj));
                 break;
+            case "ecommerce":
+                $this->doView(PLUGIN_VIEW . "pages/ecommerce.php", array("cartObj"=>$cartObj));
+                break;
             default:
                 break;
         }

@@ -11,9 +11,11 @@ class AppUtil
 {
     private static $instance;
     private static $session;
+    private $dbUtil;
 
     function __construct() {
         session_start();
+        $this->dbUtil = DbUtil::newInstance();
     }
 
     public static function newInstance() {
@@ -186,7 +188,8 @@ class AppUtil
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/category.php"));
                 break;
             case "product_sidebar":
-                $model["products"] = "sdhfsdkjhfksd";
+                $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
+                $model["products"] = $this->dbUtil->listAll();
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productSidebar.php"));
                 break;
             case "contact_us":

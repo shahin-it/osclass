@@ -16,7 +16,7 @@ var EcSiteManager = {
 }
 
 $(function() {
-    var link = app.base("items", "product-list");
+    var link = app.base("site", "ecommerce");
     var navigation = '<div class="ecommerce-nav fixed-top-nav"><span class="link shop-now" href="'+link+'"><i class="fa fa-area-chart"></i> Shop</span></div>';
     "body #header".jq.prepend(navigation);
 
