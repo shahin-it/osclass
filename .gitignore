@@ -3,3 +3,7 @@
 /oc-content/plugins/osc_commerce/resource/image/product/*/
 /.git
 /.idea
+.idea
+*.iml
+out
+gen
