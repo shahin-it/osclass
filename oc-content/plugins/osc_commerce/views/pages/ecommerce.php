@@ -9,12 +9,12 @@
 
     <div class="page-layout">
         <div class="left-slidebar">
-            <?php getAppUtil()->renderWidget("product_sidebar", array("title"=>"New Arrival"))?>
+            <?php renderWidget("product_sidebar", array("title"=>"New Arrival"))?>
             <div class="ec-widget slidebar-widget">widget2</div>
             <div class="ec-widget slidebar-widget">widget3</div>
         </div>
         <div class="layout-content">
-            <?php getAppUtil()->renderWidget("product_grid");?>
+            <?php renderWidget("product_grid");?>
         </div>
         <div class="right-slidebar">
             <div class="ec-widget slidebar-widget">widget1</div>

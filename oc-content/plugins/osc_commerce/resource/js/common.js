@@ -86,7 +86,16 @@ $.extend($.prototype, {
     },
     updateSiteUi: function() {
         var _self = this;
-        
+        var owl = _self.find(".product-slider");
+        owl.owlCarousel({
+            navigation : true, // Show next and prev buttons
+            nav: true,
+            items: 1,
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+        })
+
     }
 });
 

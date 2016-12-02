@@ -59,7 +59,8 @@ function load_script_resource() {
             AppUtil::enqueue_script($prefix.$js, RESOURCE_BASE.'js/admin/feature/'.$js.'.js');
         }
     } else {
-        osc_enqueue_style($prefix.'carousel-css', RESOURCE_BASE . 'css/site/owl.carousel.css');
+        osc_enqueue_style($prefix.'carousel-css', RESOURCE_BASE . 'css/site/owl.carousel.min.css');
+        osc_enqueue_style($prefix.'theme-css', RESOURCE_BASE . 'css/site/owl.theme.default.min.css');
         osc_enqueue_style($prefix.'site-css', RESOURCE_BASE . 'css/site/ecom-site.css');
 
         $siteJs = array('owl.carousel.min', 'site', 'product', 'cart', 'payment');
@@ -80,6 +81,11 @@ function getSiteUrl($controller, $action) {
 
 function getAppUtil() {
     return AppUtil::newInstance();
+}
+
+function renderWidget($type, $arguments = array()) {
+    require_once THIS_BASE_PATH."/src/class/class.EcWidget.php";
+    return EcWidget::newInstance()->renderWidget($type, $arguments);
 }
 
 function importUtils() {

@@ -9,7 +9,7 @@
 
     <div class="home-layout">
         <div class="layout-content">
-            <?php getAppUtil()->renderWidget("category");?>
+            <?php renderWidget("category");?>
         </div>
     </div>
 

@@ -1,17 +1,19 @@
 var EcSiteManager = {
     reloadHomePage: function(success) {
         var footer = "body.home #footer".jq;
-        sui.ajax({
-            url: app.ajaxBase("site", "home"),
-            dataType: "html",
-            data: {},
-            success: function(resp) {
-                resp = resp.jq;
-                footer.before(resp);
-                resp.updateSiteUi();
-                success && success.call(this);
-            }
-        })
+        if(footer.length) {
+            sui.ajax({
+                url: app.ajaxBase("site", "home"),
+                dataType: "html",
+                data: {},
+                success: function(resp) {
+                    resp = resp.jq;
+                    footer.before(resp);
+                    resp.updateSiteUi();
+                    success && success.call(this);
+                }
+            })
+        }
     }
 }
 
@@ -28,4 +30,6 @@ $(function() {
     $("body").on("click", ".link", function() {
         location.href = this.jq.attr("href");
     })
+
+    "body".jq.updateSiteUi();
 })
