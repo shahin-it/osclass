@@ -19,22 +19,17 @@
     <div class="image-container">
         <div class="category-block owl-carousel owl-theme">
             <div class="owl-wrapper-outer">
-                <div class="owl-wrapper" style="width: 2100px; left: 0px; display: block; transition: all 800ms ease; transform: translate3d(-700px, 0px, 0px);">
-                    <div class="owl-item" style="width: 350px;"><a
+                <div class="owl-wrapper" style="width: 2100px; left: 0px; display: block; transition: all 800ms ease;
+                 transform: translate3d(0px, 0px, 0px);">
+                    <div class="owl-item"><a
                             href="https://ajkerdeal.com/Category/11/130/267/household/fan?FSCI=130&amp;FSSCI=267&amp;BI=0&amp;MINP=0&amp;MAXP=0&amp;SORTBY=desc&amp;ORDERBY=deal"
-                            title="household" target="_blank"><img
-                                src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer2.jpg"
-                                width="350" height="475"></a></div>
-                    <div class="owl-item" style="width: 350px;"><a
+                            title="household" target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer2.jpg"></a></div>
+                    <div class="owl-item"><a
                             href="https://ajkerdeal.com/Product/361607/solar-led-lantern-lamp" title="household"
-                            target="_blank"><img
-                                src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer1.jpg"
-                                width="350" height="475"></a></div>
-                    <div class="owl-item" style="width: 350px;"><a
+                            target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer1.jpg"></a></div>
+                    <div class="owl-item"><a
                             href="https://ajkerdeal.com/Category/11/130/269/household/water-purifier?FSCI=130&amp;FSSCI=269&amp;BI=0&amp;MINP=0&amp;MAXP=0&amp;SORTBY=desc&amp;ORDERBY=deal"
-                            title="household" target="_blank"><img
-                                src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer3.jpg"
-                                width="350" height="475"></a></div>
+                            title="household" target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer3.jpg"></a></div>
                 </div>
             </div>
             <div class="owl-controls clickable">
