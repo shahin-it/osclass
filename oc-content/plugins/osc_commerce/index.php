@@ -59,9 +59,10 @@ function load_script_resource() {
             AppUtil::enqueue_script($prefix.$js, RESOURCE_BASE.'js/admin/feature/'.$js.'.js');
         }
     } else {
+        osc_enqueue_style($prefix.'carousel-css', RESOURCE_BASE . 'css/site/owl.carousel.css');
         osc_enqueue_style($prefix.'site-css', RESOURCE_BASE . 'css/site/ecom-site.css');
 
-        $siteJs = array('site', 'product', 'cart', 'payment');
+        $siteJs = array('owl.carousel.min', 'site', 'product', 'cart', 'payment');
         foreach($siteJs as $js) {
             AppUtil::enqueue_script($prefix.$js, RESOURCE_BASE.'js/site/'.$js.'.js');
         }

@@ -182,7 +182,7 @@ class AppUtil
     }
 
     function renderWidget($type, $arguments = array()) {
-        $model = array();
+        $model = $arguments;
         switch ($type) {
             case "category":
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/category.php"));
@@ -197,6 +197,11 @@ class AppUtil
             case "related_product":
                 break;
             case "payment_info":
+                break;
+            case "product_grid":
+                $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
+                $model["products"] = $this->dbUtil->listAll();
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
                 break;
             default:
                 echo $type." widget not found";
