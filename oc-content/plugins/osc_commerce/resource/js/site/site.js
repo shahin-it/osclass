@@ -8,7 +8,7 @@ var EcSiteManager = {
             success: function(resp) {
                 resp = resp.jq;
                 footer.before(resp);
-                resp.updateUi();
+                resp.updateSiteUi();
                 success && success.call(this);
             }
         })

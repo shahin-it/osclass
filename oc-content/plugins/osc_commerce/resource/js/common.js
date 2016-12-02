@@ -83,6 +83,10 @@ $.extend($.prototype, {
         this.find(".sui-accordion-panel").each(function() {
             sui.accordion(this.jq);
         })
+    },
+    updateSiteUi: function() {
+        var _self = this;
+        
     }
 });
 

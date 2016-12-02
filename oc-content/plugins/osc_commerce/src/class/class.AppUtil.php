@@ -40,7 +40,7 @@ class AppUtil
             $pluginInfo = osc_plugin_get_info(PLUGIN.'/index.php');
             $version = $pluginInfo['version'];
         }
-        osc_register_script($key, $resUrl.'?version='.$version, $dependencyArray);
+        osc_register_script($key, $resUrl/*.'?version='.$version*/, $dependencyArray);
         osc_enqueue_script($key);
     }
 

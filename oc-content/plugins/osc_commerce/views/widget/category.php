@@ -17,33 +17,9 @@
         <div class="category-menu-bottom-more">আরও ক্যাটাগরি</div>
     </div>
     <div class="image-container">
-        <div class="category-block owl-carousel owl-theme">
-            <div class="owl-wrapper-outer">
-                <div class="owl-wrapper" style="width: 2100px; left: 0px; display: block; transition: all 800ms ease;
-                 transform: translate3d(0px, 0px, 0px);">
-                    <div class="owl-item"><a
-                            href="https://ajkerdeal.com/Category/11/130/267/household/fan?FSCI=130&amp;FSSCI=267&amp;BI=0&amp;MINP=0&amp;MAXP=0&amp;SORTBY=desc&amp;ORDERBY=deal"
-                            title="household" target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer2.jpg"></a></div>
-                    <div class="owl-item"><a
-                            href="https://ajkerdeal.com/Product/361607/solar-led-lantern-lamp" title="household"
-                            target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer1.jpg"></a></div>
-                    <div class="owl-item"><a
-                            href="https://ajkerdeal.com/Category/11/130/269/household/water-purifier?FSCI=130&amp;FSSCI=269&amp;BI=0&amp;MINP=0&amp;MAXP=0&amp;SORTBY=desc&amp;ORDERBY=deal"
-                            title="household" target="_blank"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer3.jpg"></a></div>
-                </div>
-            </div>
-            <div class="owl-controls clickable">
-                <div class="owl-pagination">
-                    <div class="owl-page"><span class=""></span></div>
-                    <div class="owl-page"><span class=""></span></div>
-                    <div class="owl-page active"><span class=""></span></div>
-                </div>
-                <div class="owl-buttons">
-                    <div class="owl-prev" style="display: none;"><img
-                            src="https://www.ajkerdeal.com/Images/NewSite/categorymenu1-prev-button.png"></div>
-                    <div class="owl-next" style="display: none;"><img
-                            src="https://www.ajkerdeal.com/Images/NewSite/categorymenu1-next-button.png"></div>
-                </div>
+        <div class="category-block">
+            <div class="category-image">
+                <a href="#" target="_blank" title="Category"><img src="https://www.ajkerdeal.com/Img/Banner/HomeCategoryMenu1/11_130_Offer2.jpg"></a>
             </div>
         </div>
     </div>
