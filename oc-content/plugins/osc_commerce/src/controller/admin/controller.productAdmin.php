@@ -103,7 +103,7 @@ class productAdmin extends AdminSecBaseModel
                     $deleted = $dbUtil->deleteByPrimaryKey($id);
                 }
                 if($deleted) {
-                    getAppUtil()->deleteDir(PRODUCT_IMAGE_BASE.("product-".$id));
+                    getAppUtil()->deleteDir(RESOURCE_BASE_PATH.("image/product/product-".$id));
                     echo json_encode(array('status'=>"success", 'message'=> "Delete success"));
                 } else {
                     echo json_encode(array('status'=>"error", 'message'=> "Delete failed!"));
