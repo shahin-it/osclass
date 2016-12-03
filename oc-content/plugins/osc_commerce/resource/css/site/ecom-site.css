@@ -37,15 +37,6 @@ body .osc-ec-template {
     -webkit-flex: 0 0 20%;
     flex: 0 0 30%;
 }
-.image-container {
-    max-width: 296px;
-}
-.category-block .owl-item img {
-    max-width: 296px;
-}
-.image-container .owl-wrapper-outer {
-    overflow: hidden;
-}
 .osc-ec-template .right-slidebar {
     border-left: 1px solid #e6e6e6;
     flex: 0 0 50%;
@@ -53,3 +44,98 @@ body .osc-ec-template {
 .ec-widget.slidebar-widget {
     max-width: 200px;
 }
+
+.section-block * {
+    box-sizing: border-box;
+}
+.section-block img {
+    max-width: 100%;
+}
+.section-block {
+    border: 1px solid #e6e6e6;
+    color: #666;
+    font-family: arial;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.section-block .section-block-container {
+    display: flex;
+}
+.section-block .col-grid-left {
+    background-color: #f9f9f9;
+    -webkit-flex:0 0 20%;
+    flex:0 0 20%;
+}
+.wi-navigation .title {
+    background-color: #80c74e;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+.section-block .wi-navigation ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+.section-block .wi-navigation a:link,
+.section-block .wi-navigation a:visited,
+.section-block .wi-navigation a:active,
+.section-block .wi-navigation a:focus {
+    color: #555;
+    display: block;
+    font-size: 15px;
+    line-height: 26px;
+    padding: 0 20px;
+    text-decoration: none;
+}
+
+.section-block .wi-navigation a:hover {
+    color: #f56200;
+}
+.section-block .wi-navigation a::before {
+    content: '\f105';
+    font-family: FontAwesome;
+    margin-right: 10px;
+}
+.section-block .col-grid-middle {
+    -webkit-flex:0 0 30%;
+    flex:0 0 30%;
+}
+
+.section-block .col-grid-right {
+    -webkit-flex:0 0 50%;
+    flex:0 0 50%;
+}
+.section-block .col-grid-right {
+    flex: 0 0 50%;
+}
+.section-block .wi-product {
+    overflow: hidden;
+}
+.section-block .wi-product .col-grid {
+    float: left;
+    padding: 10px;
+    text-align: center;
+    width: 33.333%;
+}
+.section-block .wi-product .col-grid.add-container {
+    width: 66.666%;
+}
+.section-block .wi-product .product-name {
+    font-size: 14px;
+    padding: 5px 0;
+}
+.section-block .wi-product .product-price {
+    color: #f56200;
+    font-size: 20px;
+}
+
+
+
+
+.section-block {}
+.section-block {}
+.section-block {}
+.section-block {}

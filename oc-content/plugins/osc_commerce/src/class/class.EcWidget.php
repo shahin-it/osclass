@@ -31,8 +31,9 @@ class EcWidget
     function renderWidget($type, $arguments = array()) {
         $model = $arguments;
         switch ($type) {
-            case "category":
-                require_once(osc_plugin_path(PLUGIN_VIEW."widget/category.php"));
+            case "category_block":
+                $model["categories"] = $this->itemController->getCategoryWithChild();
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/categoryDetails.php"));
                 break;
             case "product_sidebar":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");

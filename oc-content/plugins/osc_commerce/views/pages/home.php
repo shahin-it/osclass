@@ -9,7 +9,7 @@
 
     <div class="home-layout">
         <div class="layout-content">
-            <?php renderWidget("category");?>
+            <?php renderWidget("category_block");?>
         </div>
     </div>
 

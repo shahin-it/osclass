@@ -75,10 +75,10 @@ class items extends BaseModel
         return $products;
     }
 
-    public function getCategoryWithProducts($param) {
+    /*public function getCategoryWithProducts($param = array()) {
         $dbUtil = $this->dbUtil;
         $categories = array('root'=>array());
-        $products = $dbUtil->makeDao("t_ec_product", "pk_p_id")->listAll(array('b_active'=>1), $param);
+        $products = $this->getProduct(array('b_active'=>1), $param);
         $category = $dbUtil->makeDao("t_ec_category", "pk_c_id")->listAll(array('b_active'=>1));
         foreach($category as &$cat) {
             $cat["products"] = array();
@@ -92,6 +92,42 @@ class items extends BaseModel
         }
         $categories["list"] = $category;
         return $categories;
+    }*/
+
+    public function getCategoryWithChild($catParam = array(), $prdParam = array()) {
+        $dbUtil = $this->dbUtil;
+        $categories = array();
+        global $products;
+        $products = $this->getProduct(array('b_active'=>1), $prdParam);
+        $category = $dbUtil->makeDao("t_ec_category", "pk_c_id")->listAll(array('b_active'=>1), $catParam);
+        foreach ($category as $item) {
+            global $__cat;
+            $__cat = $item;
+            if($__cat["i_parent_id"] == null) {
+                $__cat["products"] = $this->getChildProducts($products, $__cat);
+                $__cat["childs"] = array_filter($category, function (&$child) {
+                    global $__cat;
+                    global $products;
+
+                    $valid = $__cat["pk_c_id"] != $child["pk_c_id"] && $__cat["pk_c_id"] == $child["i_parent_id"];
+                    if($valid) {
+                        $child["products"] = $this->getChildProducts($products, $child);
+                    }
+                    return $valid;
+                });
+                array_push($categories, $__cat);
+            }
+        }
+        return $categories;
+    }
+
+    private function getChildProducts($products, $parentCategory) {
+        global $____category;
+        $____category = $parentCategory;
+        return array_filter($products, function ($prd) {
+            global $____category;
+            return $____category["pk_c_id"] == $prd["fk_c_id"];
+        });
     }
 
     function doView($file, $model = array())

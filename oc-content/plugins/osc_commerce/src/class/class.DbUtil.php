@@ -85,7 +85,7 @@ class DbUtil extends DAO
     public function listAll($conditionMap = array(), $configMap = array())
     {
         if(!is_array($conditionMap)) {
-            return parent::listAll($conditionMap);
+            return $this->dao->query("SELECT * FROM ".$this->getTableName()." ".$conditionMap)->result();
         }
         $config = array_merge(array(
             "offset" => 0,

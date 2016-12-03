@@ -92,7 +92,7 @@ class categoryAdmin extends AdminSecBaseModel
     function findRootAble($base)
     {
         if($base) {
-            return $this->dbUtil->dao->query("SELECT * FROM ".DB_TABLE_PREFIX."t_ec_category WHERE pk_c_id !='".$base."' AND b_active=1")->result();
+            return $this->dbUtil->listAll("WHERE pk_c_id !='".$base."' AND i_parent_id IS NULL AND b_active=1");
         } else {
             return $this->dbUtil->listAll(array());
         }
