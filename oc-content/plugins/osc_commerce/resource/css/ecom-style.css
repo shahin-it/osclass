@@ -107,3 +107,6 @@ input.quantity-spinner {
 .sui-accordion-panel .sui-accordion-label {
     cursor: pointer;
 }
+.link {
+    cursor: pointer;
+}

@@ -24,7 +24,8 @@ class productAdmin extends AdminSecBaseModel
     public function mkModel() {
         $this->dbUtil->makeDao("t_ec_product", "pk_p_id", array("pk_p_id", "s_name", "b_active", "b_is_onsale", "s_url",
             "s_image", "s_brand", "s_model", "s_size", "s_color", "s_description", "d_base_price", "d_sale_price",
-            "dt_created", "dt_updated", "fk_c_id", "s_image1", "s_image2", "s_image3", "s_image4"));
+            "dt_created", "dt_updated", "fk_c_id", "s_image1", "s_image2", "s_image3", "s_image4", "b_is_new",
+            "b_is_feature", "b_allow_stock", "i_quantity"));
     }
 
     function doModel()

@@ -29,7 +29,6 @@ $(function() {
     });
     $("body").on("click", ".link", function() {
         location.href = this.jq.attr("href");
-    })
-
+    });
     "body".jq.updateSiteUi();
 })
