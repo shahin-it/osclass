@@ -1,17 +1,17 @@
 var EcSiteManager = {
     reloadHomePage: function(success) {
-        var footer = "body>".jq.last();
+        var target = ".home.content, .home #content".jq.last();
         if($.inArray(document.location.pathname, ["/osclass/", "/", "/bv/"]) == -1) {
             return;
         }
-        if(footer.length) {
+        if(target.length) {
             sui.ajax({
                 url: app.ajaxBase("site", "home"),
                 dataType: "html",
                 data: {},
                 success: function(resp) {
                     resp = resp.jq;
-                    footer.before(resp);
+                    target.after(resp);
                     resp.updateSiteUi();
                     success && success.call(this);
                 }
