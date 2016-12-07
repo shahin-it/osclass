@@ -73,11 +73,13 @@ $.extend($.prototype, {
                     this.jq.replaceWith(this.jq.val('').clone(true));
                     return false;
                 }
-                var input = $('<div class="input"><input type="file" name="s_image[]" value="" max-size="2048"><i class="action remove fa fa-times color-red" title="Remove"></i></div>');
-                this.jq.parents(".input").after(input);
-                input.find(".remove").click(function() {
-                    this.jq.parents(".input").remove();
-                })
+                if(!this.jq.is(".single")) {
+                    var input = $('<div class="input"><input type="file" name="s_image[]" value="" max-size="2048"><i class="action remove fa fa-times color-red" title="Remove"></i></div>');
+                    this.jq.parents(".input").after(input);
+                    input.find(".remove").click(function() {
+                        this.jq.parents(".input").remove();
+                    })
+                }
             }
         });
         this.find(".sui-accordion-panel").each(function() {

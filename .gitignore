@@ -1,6 +1,7 @@
 /config.php
 /oc-content/plugins/osc_commerce/Eshopper
 /oc-content/plugins/osc_commerce/resource/image/product/*/
+/oc-content/plugins/osc_commerce/resource/image/category/*/
 /.git
 /.idea
 .idea

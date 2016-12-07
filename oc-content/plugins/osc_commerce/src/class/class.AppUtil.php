@@ -169,6 +169,9 @@ class AppUtil
     public function getBaseProductImage($id, $image, $size = "small") {
         return PRODUCT_IMAGE_BASE.($image ? "product-".$id."/".imageResulation($size)."_".$image : "default.png");
     }
+    public function getBaseCategoryImage($id, $image, $size = "small") {
+        return RESOURCE_BASE."image/category/".($image ? "category-".$id."/".imageResulation($size)."_".$image : "default.png");
+    }
 
     public static function deleteDir($dir) {
         if(!is_dir($dir)) {

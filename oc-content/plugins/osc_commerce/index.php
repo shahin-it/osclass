@@ -94,7 +94,7 @@ function importUtils() {
 
 function imageResulation($size) {
     return array(
-        "small"=>196,
+        "small"=>240,
         "medium"=>480,
         "large"=>960
     )[$size];

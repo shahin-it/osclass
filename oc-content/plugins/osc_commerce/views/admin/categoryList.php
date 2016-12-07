@@ -28,8 +28,9 @@ $categories = $model['category'];
                 <th class="select-column"><input type="checkbox"></th>
                 <th class="id">Id</th>
                 <th class="name actions-column">Name</th>
+                <th class="parent">Parent Category</th>
+                <th class="image">Image</th>
                 <th class="date">Created</th>
-<!--                <th class="image">Image</th>-->
                 <th class="status">Status</th>
             </tr>
             <?php foreach($categories as $category) {?>
@@ -43,8 +44,9 @@ $categories = $model['category'];
                         <i class="fa fa-trash-o delete" title="Delete"></i>
                     </div>
                 </td>
+                <td class="parent"><?php echo $category['parent'] ? $category['parent']["s_name"] : 'Root Category' ?></td>
+                <td class="image"><?php echo $category['s_image']?></td>
                 <td class="date"><?php echo $category['dt_created']?></td>
-<!--                <td class="image">--><?php //echo $category['s_image']?><!--</td>-->
                 <td class="status"><i class="fa <?php echo($category['b_active'] == "1" ? "fa-check" : "fa-ban")?>"></i></td>
             </tr>
             <?php }?>

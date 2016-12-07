@@ -75,25 +75,6 @@ class items extends BaseModel
         return $products;
     }
 
-    /*public function getCategoryWithProducts($param = array()) {
-        $dbUtil = $this->dbUtil;
-        $categories = array('root'=>array());
-        $products = $this->getProduct(array('b_active'=>1), $param);
-        $category = $dbUtil->makeDao("t_ec_category", "pk_c_id")->listAll(array('b_active'=>1));
-        foreach($category as &$cat) {
-            $cat["products"] = array();
-            foreach($products as &$prd) {
-                if($prd["fk_c_id"] == null) {
-                    array_push($categories["root"], $prd);
-                } elseif ($prd["fk_c_id"] == $cat["pk_c_id"]) {
-                    array_push($cat["products"], $prd);
-                }
-            }
-        }
-        $categories["list"] = $category;
-        return $categories;
-    }*/
-
     public function getCategoryWithChild($catParam = array(), $prdParam = array()) {
         $dbUtil = $this->dbUtil;
         $categories = array();
@@ -105,10 +86,9 @@ class items extends BaseModel
             $__cat = $item;
             if($__cat["i_parent_id"] == null) {
                 $__cat["products"] = $this->getChildProducts($products, $__cat);
-                $__cat["childs"] = array_filter($category, function (&$child) {
+                $__cat["child"] = array_filter($category, function (&$child) {
                     global $__cat;
                     global $products;
-
                     $valid = $__cat["pk_c_id"] != $child["pk_c_id"] && $__cat["pk_c_id"] == $child["i_parent_id"];
                     if($valid) {
                         $child["products"] = $this->getChildProducts($products, $child);

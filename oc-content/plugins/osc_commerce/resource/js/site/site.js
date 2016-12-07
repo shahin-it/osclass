@@ -1,6 +1,9 @@
 var EcSiteManager = {
     reloadHomePage: function(success) {
-        var footer = "body.home #footer".jq;
+        var footer = "body>".jq.last();
+        if($.inArray(document.location.pathname, ["/osclass/", "/", "/bv/"]) == -1) {
+            return;
+        }
         if(footer.length) {
             sui.ajax({
                 url: app.ajaxBase("site", "home"),

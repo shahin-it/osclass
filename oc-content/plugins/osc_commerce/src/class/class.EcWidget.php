@@ -49,6 +49,7 @@ class EcWidget
             case "product_grid":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
                 $model["products"] = $this->itemController->getProduct();
+                $model["categories"] = $this->itemController->getCategoryWithChild();
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
                 break;
             default:

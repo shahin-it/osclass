@@ -7,6 +7,12 @@
         <label>Name</label>
         <input type="text" name="s_name" value="<?php echo $category['s_name']?>" required="" maxlength="200">
     </div>
+    <div class="form-row sui-file-chooser">
+        <label>Image</label>
+        <div class="input">
+            <input class="single" type="file" name="s_image" value="" max-size="2048">
+        </div>
+    </div>
     <div class="form-row">
         <label>Parent Category</label>
         <select name="i_parent_id">

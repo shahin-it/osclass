@@ -37,8 +37,8 @@ class categoryAdmin extends AdminSecBaseModel
                 if(Params::getParam("offset")) {
                     $param["offset"] = Params::getParam("offset") ?: 10;
                 }
-                $model = $dbUtil->listAll(array(), $param);
-                $this->doView(PLUGIN_VIEW . "admin/categoryList.php", array('category'=>$model));
+                $category = $this->getCategories(array(), $param);
+                $this->doView(PLUGIN_VIEW . "admin/categoryList.php", array('category'=>$category));
                 break;
             case "save":
                 $props = array();
@@ -55,7 +55,15 @@ class categoryAdmin extends AdminSecBaseModel
                 } else {
                     $props['dt_created'] = $dbUtil->date();
                     $save = $dbUtil->insert($props);
+                    $id = $dbUtil->findLastId();
                 }
+                $image = Params::getFiles("s_image");
+                if($image && $id) {
+                    $images = $this->saveCategoryImage($image, $id);
+                    $props["s_image"] = $images;
+                    $save = $dbUtil->updateByPrimaryKey($props, $id);
+                }
+
                 if($save == false) {
                     AppUtil::JSON_RESPONSE(array('status'=>"error", 'message'=> "Unexpected error occurred!"));
                 } else {
@@ -81,12 +89,28 @@ class categoryAdmin extends AdminSecBaseModel
                 if($deleted == false) {
                     AppUtil::JSON_RESPONSE(array('status'=>"error", 'message'=> "Delete failed!"));
                 } else {
+                    getAppUtil()->deleteDir(RESOURCE_BASE_PATH.("image/category/category-".$id));
                     AppUtil::JSON_RESPONSE(array('status'=>"success", 'message'=> "Delete success"));
                 }
                 break;
             default:
                 break;
         }
+    }
+
+    public function saveCategoryImage($img, $id = "") {
+            $prefix = "category-".$id."/";
+            $dir = RESOURCE_BASE_PATH."image/category/".$prefix;
+            $file = $img["name"];
+            osc_mkdir($dir, 0700);
+            $distFile = $dir.$file;
+            move_uploaded_file($img['tmp_name'], $distFile);
+            try {
+                getAppUtil()->resizeAndSave($distFile, $dir, $file);
+            } catch(Exception $e) {
+                osc_add_flash_error_message($e->getMessage());
+            }
+        return $file;
     }
 
     function findRootAble($base)
@@ -96,6 +120,21 @@ class categoryAdmin extends AdminSecBaseModel
         } else {
             return $this->dbUtil->listAll(array());
         }
+    }
+
+    function getCategories($conditionMap, $param) {
+        $categories = $this->dbUtil->listAll(array(), $param);
+        $cate = array();
+        foreach ($categories as $c1) {
+            $c = $c1;
+            foreach ($categories as $c2) {
+                if($c2["pk_c_id"] == $c1["i_parent_id"]) {
+                    $c["parent"] = $c2;
+                }
+            }
+            array_push($cate, $c);
+        }
+        return $cate;
     }
 
     function doView($file, $model = array())
