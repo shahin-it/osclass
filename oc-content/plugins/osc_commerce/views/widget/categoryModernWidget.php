@@ -1,6 +1,6 @@
 <?php $categories = $model["categories"]?>
 <div class="ec-widget layout-widget category-widget">
-    <?php foreach($categories as $category) {?>
+    <?php foreach($categories as $category) {?><br>
     <div class="section-block">
         <div class="section-block-container">
             <div class="col-grid-left">
@@ -17,7 +17,7 @@
             </div>
             <div class="col-grid-middle">
                 <div class="slider">
-                    <img src="<?php echo $category["s_image"]?>" alt="<?php echo $category["s_name"]?>"/>
+                    <img src="<?php echo RESOURCE_BASE.'image/category/slider-1.png'?>" alt="<?php echo $category["s_name"]?>"/>
                 </div>
             </div>
             <div class="col-grid-right">
@@ -31,7 +31,7 @@
                             <a href="#"><span class="v-align"><img src="<?php echo getAppUtil()->getBaseProductImage($product['pk_p_id'], $product['s_image'])?>" alt=""/></a>
                         </div>
                         <div class="product-name"><?php echo $product["s_name"]?></div>
-                        <div class="product-price"><?php echo $product["display_price"].CURRENCY_SYMBOL?></div>
+                        <div class="product-price"><?php echo toPrice($product["display_price"]).CURRENCY_SYMBOL?></div>
                     </div>
                     <?php }?>
                 </div>

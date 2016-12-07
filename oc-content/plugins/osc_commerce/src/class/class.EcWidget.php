@@ -33,7 +33,7 @@ class EcWidget
         switch ($type) {
             case "category_block":
                 $model["categories"] = $this->itemController->getCategoryWithChild();
-                require_once(osc_plugin_path(PLUGIN_VIEW."widget/categoryDetails.php"));
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/categoryModernWidget.php"));
                 break;
             case "product_sidebar":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
