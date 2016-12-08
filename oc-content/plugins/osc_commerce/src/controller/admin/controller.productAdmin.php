@@ -53,7 +53,11 @@ class productAdmin extends AdminSecBaseModel
                 $props['s_size'] = Params::getParam("s_size");
                 $props['s_color'] = Params::getParam("s_color");
 
+                $props['i_quantity'] = Params::getParam("i_quantity");
                 $props['d_base_price'] = Params::getParam("d_base_price");
+
+                $props['b_is_new'] = Params::getParam("b_is_new") == "true";
+                $props['b_is_feature'] = Params::getParam("b_is_feature") == "true";
                 $props['b_is_onsale'] = Params::getParam("b_is_onsale") == "true";
                 $props['d_sale_price'] = Params::getParam("d_sale_price") ?: null;
 

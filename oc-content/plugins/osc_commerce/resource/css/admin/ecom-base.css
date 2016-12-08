@@ -23,7 +23,7 @@
 }
 .form-row label {
     font-size: 18px!important;
-    display: block;
+    display: inline-block;
 }
 
 .sui-table table {

@@ -62,6 +62,7 @@ function load_script_resource() {
         osc_enqueue_style($prefix.'carousel-css', RESOURCE_BASE . 'css/site/owl.carousel.min.css');
         osc_enqueue_style($prefix.'theme-css', RESOURCE_BASE . 'css/site/owl.theme.default.min.css');
         osc_enqueue_style($prefix.'site-css', RESOURCE_BASE . 'css/site/ecom-site.css');
+        osc_enqueue_style($prefix.'site', RESOURCE_BASE . 'css/site/site.css');
 
         $siteJs = array('owl.carousel.min', 'site', 'product', 'cart', 'payment');
         foreach($siteJs as $js) {
@@ -90,14 +91,6 @@ function renderWidget($type, $arguments = array()) {
 
 function importUtils() {
     require_once THIS_BASE_PATH."/src/class/class.AppUtil.php";
-}
-
-function imageResulation($size) {
-    return array(
-        "small"=>240,
-        "medium"=>480,
-        "large"=>960
-    )[$size];
 }
 
 //end file (Making a plugin installable)

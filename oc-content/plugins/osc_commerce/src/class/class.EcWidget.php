@@ -43,14 +43,24 @@ class EcWidget
             case "contact_us":
                 break;
             case "related_product":
+                $model["products"] = $this->itemController->getRelatedProduct($model["product"]);
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
                 break;
             case "payment_info":
                 break;
             case "product_grid":
-                $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
                 $model["products"] = $this->itemController->getProduct();
-                $model["categories"] = $this->itemController->getCategoryWithChild();
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
+                break;
+            case "category_accordion":
+                $model["categories"] = $this->itemController->getCategoryWithChild();
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/categoryAccordionWidget.php"));
+                break;
+            case "product_details":
+                if(!$model["product"]) {
+                    $model["product"] = $this->itemController->getProduct(array("pk_p_id"=> $arguments["id"]))[0];
+                }
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/productDetailsWidget.php"));
                 break;
             default:
                 echo $type." widget not found";

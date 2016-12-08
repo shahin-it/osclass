@@ -1,16 +1,10 @@
-<div class="osc-ec-template ecommerce-home-page">
-    <?php
-    //        require_once(THIS_BASE_PATH."/views/productListing.php");
-    ?>
-
-    <div class="site-intro">
-        <div class="title">Bikroy Venue Shop</div>
-    </div>
-
-    <div class="home-layout">
-        <div class="layout-content">
-            <?php renderWidget("category_block");?>
+<div class="osc-ec-template ecommerce-home-page section-ecommerce layout-left-full-width">
+    <div class="container">
+        <div class="row page-heading"><div class="col-sm-12"><h1>Bikroy Venue Shop</h1></div></div>
+        <div class="row">
+            <div class="col-sm-12 content-main">
+                <?php renderWidget("category_block");?>
+            </div>
         </div>
     </div>
-
 </div>

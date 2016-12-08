@@ -88,14 +88,21 @@ $.extend($.prototype, {
     },
     updateSiteUi: function() {
         var _self = this;
-        var owl = _self.find(".product-slider");
-        owl.owlCarousel({
-            navigation : true, // Show next and prev buttons
-            nav: true,
-            items: 1,
-            loop: true,
-            margin: 10,
-            responsiveClass: true,
+        _self.find(".owl-carousel.image-slider, .owl-carousel.product-slider").each(function () {
+            var owl = this.jq;
+            owl.owlCarousel({
+                navigation : true, // Show next and prev buttons
+                nav: true,
+                singleItem:true,
+                // loop: true,
+                margin: 10,
+                responsiveClass: true,
+            })
+        })
+
+        _self.find(".thumb-image-wrapper img").click(function() {
+            var data = this.jq.parents(".thumb-image-wrapper").data("size").split(":")
+            this.jq.parents(".product-details").find(".product-image img").attr("src", this.jq.attr("src").replace(data[0], data[1]));
         })
 
     }

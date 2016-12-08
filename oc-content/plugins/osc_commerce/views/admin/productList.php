@@ -31,6 +31,7 @@ $products = $model['product'];
                 <th class="category">Category</th>
                 <th class="date">Created</th>
                 <th class="image">Image</th>
+                <th class="stock">Stock</th>
                 <th class="on-sale">Is OnSale</th>
                 <th class="price">Price</th>
                 <th class="status">Status</th>
@@ -49,8 +50,9 @@ $products = $model['product'];
                 <td class="category"><?php echo $product['category'] ? $product['category']['s_name'] : ""?></td>
                 <td class="date"><?php echo $product['dt_created']?></td>
                 <td class="image"><?php echo $product['s_image']?></td>
+                <td class="image"><?php echo $product['i_quantity']?></td>
                 <td class="on-sale"><i class="fa <?php echo($product['b_is_onsale'] == "1" ? "fa-check color-green" : "fa-ban color-red")?>"></i></td>
-                <td class="price"><?php echo $product['d_base_price']?></td>
+                <td class="price"><?php echo toPrice($product['d_base_price'])?></td>
                 <td class="status"><i class="fa <?php echo($product['b_active'] == "1" ? "fa-check color-green" : "fa-ban color-red")?>"></i></td>
             </tr>
             <?php }?>

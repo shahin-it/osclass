@@ -58,6 +58,7 @@ class items extends BaseModel
     }
 
     public function getProduct($condition = array(), $param = array()) {
+        $this->mkProductModel();
         $condition = array_merge(array(
             'b_active'=>1
         ), $condition);
@@ -70,6 +71,20 @@ class items extends BaseModel
                 $prd["display_price"] = $prd['d_sale_price'];
             } else {
                 $prd["display_price"] = $prd['d_base_price'];
+            }
+        }
+        return $products;
+    }
+
+    public function getRelatedProduct($product, $condition = array(), $param = array()) {
+        $this->mkProductModel();
+        $condition = array_merge(array(
+            'b_active'=>1
+        ), $condition);
+        $products = array();
+        foreach ($this->getProduct($condition, $param) as $prd) {
+            if($prd["pk_p_id"] != $product["pk_p_id"] && $prd["fk_c_id"] == $product["fk_c_id"]) {
+                array_push($products, $prd);
             }
         }
         return $products;

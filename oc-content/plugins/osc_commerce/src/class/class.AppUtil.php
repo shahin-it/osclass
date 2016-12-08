@@ -156,21 +156,41 @@ class AppUtil
         return $this->refreshCart($cart);
     }
 
-    public function resizeAndSave($source, $dist, $name) {
-        $small = imageResulation("small");
-        $medium = imageResulation("medium");
-        $large = imageResulation("large");
+    public function imageResulation($size) {
+        return array(
+            "small"=>240,
+            "medium"=>480,
+            "large"=>960
+        )[$size];
+    }
 
-        ImageResizer::fromFile($source)->resizeTo($small, $small)->saveToFile($dist.$small."_".$name);
-        ImageResizer::fromFile($source)->resizeTo($medium, $medium)->saveToFile($dist.$medium."_".$name);
-        ImageResizer::fromFile($source)->resizeTo($large, $large)->saveToFile($dist.$large."_".$name);
+    public function resizeAndSave($source, $dist, $name) {
+        $small_h = $small_w = $this->imageResulation("small");
+        $medium_h = $medium_w = $this->imageResulation("medium");
+        $large_h = $large_w = $this->imageResulation("large");
+        if(strpos($dist, 'category') == true) {
+            $medium_h = 230;
+        }
+
+        ImageResizer::fromFile($source)->resizeTo($small_w-40, $small_h)->saveToFile($dist.$small_w."_".$name);
+        ImageResizer::fromFile($source)->resizeTo($medium_w-60, $medium_h)->saveToFile($dist.$medium_w."_".$name);
+        ImageResizer::fromFile($source)->resizeTo($large_w-120, $large_h)->saveToFile($dist.$large_w."_".$name);
     }
 
     public function getBaseProductImage($id, $image, $size = "small") {
-        return PRODUCT_IMAGE_BASE.($image ? "product-".$id."/".imageResulation($size)."_".$image : "default.png");
+        return PRODUCT_IMAGE_BASE.($image ? "product-".$id."/".$this->imageResulation($size)."_".$image : "default.png");
+    }
+    public function getBaseProductImages($product, $size = "small") {
+        $images = array();
+        foreach (array("s_image", "s_image1", "s_image2", "s_image3", "s_image4") as $img){
+            if($product[$img]) {
+                array_push($images, $this->getBaseProductImage($product["pk_p_id"], $product[$img], $size));
+            }
+        }
+        return $images;
     }
     public function getBaseCategoryImage($id, $image, $size = "small") {
-        return RESOURCE_BASE."image/category/".($image ? "category-".$id."/".imageResulation($size)."_".$image : "default.png");
+        return RESOURCE_BASE."image/category/".($image ? "category-".$id."/".($size ? $this->imageResulation($size)."_" : "").$image : "default.png");
     }
 
     public static function deleteDir($dir) {

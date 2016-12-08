@@ -1,20 +1,16 @@
-<?php
-//echo file_get_contents(THIS_BASE_PATH."Eshopper/index.html");
-?>
+<div class="section-ecommerce layout-left-sidebar osc-ec-template ecommerce-product-page">
+    <div class="container">
+        <div class="row page-heading"><div class="col-sm-12"><h1>Bikroy Venue Shop</h1></div></div>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <?php renderWidget("category_accordion");?>
+                </div>
+            </div>
 
-<div class="osc-ec-template ecommerce-product-page">
-    <div class="site-intro">
-        <div class="title">Bikroy Venue Shop</div>
-    </div>
-
-    <div class="page-layout">
-        <div class="left-slidebar">
-            <?php //renderWidget("product_sidebar", array("title"=>"New Arrival"))?>
-<!--            <div class="ec-widget slidebar-widget">widget2</div>-->
-<!--            <div class="ec-widget slidebar-widget">widget3</div>-->
-        </div>
-        <div class="layout-content">
-            <?php renderWidget("product_grid");?>
+            <div class="col-sm-9 content-main product-card padding-right">
+                <?php renderWidget("product_grid");?>
+            </div>
         </div>
     </div>
 </div>

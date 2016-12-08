@@ -29,8 +29,20 @@
         <input type="text" name="s_color" value="<?php echo $product['s_color']?>" maxlength="200">
     </div>
     <div class="form-row input-title-wide">
+        <label>Available Stock</label>
+        <input class="input-text" type="number" name="i_quantity" value="<?php echo $product['i_quantity']?>" required="" maxlength="9">
+    </div>
+    <div class="form-row input-title-wide">
         <label>Base Price</label>
         <input class="input-text" type="number" name="d_base_price" value="<?php echo $product['d_base_price']?>" required="" maxlength="9">
+    </div>
+    <div class="form-row">
+        <label>Is New</label>
+        <input type="checkbox" name="b_is_new" <?php echo ($product['b_is_new'] == "1" ? "checked" : "")?> value="true">
+    </div>
+    <div class="form-row">
+        <label>Is Featured</label>
+        <input type="checkbox" name="b_is_feature" <?php echo ($product['b_is_feature'] == "1" ? "checked" : "")?> value="true">
     </div>
     <div class="form-row">
         <label>Is On Sale</label>

@@ -1,0 +1,8 @@
+.section-block .section-block-container {
+    border-top: 2px solid #80c74e;
+    border-right-style: inset;
+    border-bottom-style: inset;
+}
+.thumb-image-wrapper li a img {
+    height: 64px;
+}
