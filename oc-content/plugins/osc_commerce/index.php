@@ -20,6 +20,7 @@ define("PLUGIN_BASE", osc_plugin_url(__FILE__));
 define("THIS_BASE_PATH", osc_plugin_path("osc_commerce/"));
 define("RESOURCE_BASE_PATH", THIS_BASE_PATH."resource/");
 define("CURRENCY_SYMBOL", "TK");
+define("SHIPPING_COST", 100);
 importUtils();
 
 osc_add_route('commerce-route', 'commerce-route/([0-9]+)/(.+)', 'commerce-route/{controller}/{trigger}', osc_plugin_folder(__FILE__).'route.php');

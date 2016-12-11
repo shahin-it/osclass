@@ -21,13 +21,13 @@ class items extends BaseModel
     }
 
     public function mkProductModel() {
-        $this->dbUtil->makeDao("t_ec_product", "pk_p_id", array("pk_p_id", "s_name", "b_active", "b_is_onsale", "s_url",
+        return $this->dbUtil->makeDao("t_ec_product", "pk_p_id", array("pk_p_id", "s_name", "b_active", "b_is_onsale", "s_url",
             "s_image", "s_brand", "s_model", "s_size", "s_color", "s_description", "d_base_price", "d_sale_price",
             "dt_created", "dt_updated", "fk_c_id", "s_image1", "s_image2", "s_image3", "s_image4"));
     }
 
     public function mkCategoryModel() {
-        $this->dbUtil->makeDao("t_ec_category", "pk_c_id", array("pk_c_id", "b_active", "s_name", "s_image", "s_description",
+        return $this->dbUtil->makeDao("t_ec_category", "pk_c_id", array("pk_c_id", "b_active", "s_name", "s_image", "s_description",
             "dt_created", "i_parent_id"));
     }
 
@@ -42,22 +42,30 @@ class items extends BaseModel
                 $categories = array();
                 $products = array();
                 if($categoryId == null) {
-                    $products = $this->getProduct();
+                    $products = $this->getProducts();
                 } elseif($categoryId == "root") {
-                    $products = $this->getProduct(array('fk_c_id'=>null));
+                    $products = $this->getProducts(array('fk_c_id'=>null));
                 } else {
-                    $products = $this->getProduct(array('fk_c_id'=>$categoryId));
+                    $products = $this->getProducts(array('fk_c_id'=>$categoryId));
                 }
                 $this->doView(PLUGIN_VIEW . "pages/home.php", array("categories"=>$categories, "products"=>$products));
                 break;
+            case "category-details":
+                $model = array();
+                $model["products"] = $this->getProducts(array("fk_c_id"=> $id));
+                if($model["products"]) {
+                    $model["title"] = "Category details - ".$this->mkCategoryModel()->findByPrimaryKey($id)["s_name"];
+                }
+                $this->doView(PLUGIN_VIEW . "pages/categoryDetails.php", $model);
+                break;
             case "product-details":
-                $product = $this->getProduct(array("pk_p_id"=> $id))[0];
+                $product = $this->getProducts(array("pk_p_id"=> $id))[0];
                 $this->doView(PLUGIN_VIEW . "pages/productDetails.php", array("product"=> $product));
                 break;
         }
     }
 
-    public function getProduct($condition = array(), $param = array()) {
+    public function getProducts($condition = array(), $param = array()) {
         $this->mkProductModel();
         $condition = array_merge(array(
             'b_active'=>1
@@ -82,7 +90,7 @@ class items extends BaseModel
             'b_active'=>1
         ), $condition);
         $products = array();
-        foreach ($this->getProduct($condition, $param) as $prd) {
+        foreach ($this->getProducts($condition, $param) as $prd) {
             if($prd["pk_p_id"] != $product["pk_p_id"] && $prd["fk_c_id"] == $product["fk_c_id"]) {
                 array_push($products, $prd);
             }
@@ -94,7 +102,7 @@ class items extends BaseModel
         $dbUtil = $this->dbUtil;
         $categories = array();
         global $products;
-        $products = $this->getProduct(array('b_active'=>1), $prdParam);
+        $products = $this->getProducts(array('b_active'=>1), $prdParam);
         $category = $dbUtil->makeDao("t_ec_category", "pk_c_id")->listAll(array('b_active'=>1), $catParam);
         foreach ($category as $item) {
             global $__cat;

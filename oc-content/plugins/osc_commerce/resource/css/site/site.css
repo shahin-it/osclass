@@ -6,3 +6,6 @@
 .thumb-image-wrapper li a img {
     height: 64px;
 }
+.sidebar-widget .fa {
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
 <?php $products = $model["products"] ?>
-<div class="ec-widget slidebar-widget product">
+<div class="ec-widget sidebar-widget product">
     <div class="widget-title"><?php echo $model["title"] ?: ''?></div>
     <div class="owl-carousel owl-theme product-slider">
         <?php foreach ($products as $product) {?>

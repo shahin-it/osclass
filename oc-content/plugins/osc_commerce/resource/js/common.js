@@ -105,6 +105,19 @@ $.extend($.prototype, {
             this.jq.parents(".product-details").find(".product-image img").attr("src", this.jq.attr("src").replace(data[0], data[1]));
         })
 
+        _self.find(".sui-accordion-panel").on("click", ".item-label", function () {
+            var item = this.jq.next(".item-body");
+            if(!item.length) {
+                item = this.jq.parent().next(".item-body");
+            }
+            if(item.is(":hidden")) {
+                item.show();
+                this.jq.removeClass("fa-plus").addClass("fa-minus");
+            } else {
+                item.hide();
+                this.jq.removeClass("fa-minus").addClass("fa-plus");
+            }
+        })
     }
 });
 

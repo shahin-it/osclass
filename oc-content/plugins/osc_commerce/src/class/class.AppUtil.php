@@ -122,6 +122,7 @@ class AppUtil
         $items = &$cart['items'];
         $cart["subTotal"] = 0.00;
         $cart["grandTotal"] = 0.00;
+        $cart["shippingCost"] = SHIPPING_COST;
         foreach($items as $key=>$item) {
             if($item["quantity"] == "0") {
                 array_splice($items, $key, 1);
@@ -132,6 +133,7 @@ class AppUtil
                 $cart["grandTotal"] += $item["price"];
             }
         }
+        $cart["grandTotal"] = $cart["grandTotal"] + $cart["shippingCost"];
         return $cart;
     }
 

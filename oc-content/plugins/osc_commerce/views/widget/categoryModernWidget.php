@@ -9,8 +9,9 @@
                     <div class="nav-item-container">
                         <ul>
                             <?php foreach ($category["child"] as $child) {?>
-                                <li><a href="<?php echo '#'?>"><?php echo $child["s_name"]?></a></li>
+                                <li><a href="<?php echo getSiteUrl("items", "category-details")."?id=".$child["pk_c_id"] ?>"><?php echo $child["s_name"]?></a></li>
                             <?php }?>
+                            <li class=""><a href="<?php echo getSiteUrl("items", "category-details")."?id=".$category["pk_c_id"] ?>">See More <span class="fa fa-plus-square"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -27,9 +28,11 @@
             <div class="col-grid-right">
                 <div class="wi-product">
                     <div class="col-grid add-container">
-                        <img src="<?php echo getAppUtil()->getBaseCategoryImage($category['pk_c_id'], $category['s_image'], "medium")?>" alt=""/>
+                        <a href="<?php echo getSiteUrl("items", "category-details")."?id=".$category["pk_c_id"] ?>">
+                            <img src="<?php echo getAppUtil()->getBaseCategoryImage($category['pk_c_id'], $category['s_image'], "medium")?>" alt=""/>
+                        </a>
                     </div>
-                    <?php foreach($category["products"] as $product) {?>
+                    <?php foreach(array_slice($category["products"], 0, 3) as $product) {?>
                     <div class="col-grid  product-item">
                         <div class="product-image">
                             <a href="<?php echo getSiteUrl("items", "product-details")."&id=".$product['pk_p_id'] ?>">

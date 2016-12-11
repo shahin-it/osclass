@@ -61,3 +61,6 @@
 .sui-file-chooser {
 
 }
+#osc_commerce .ico {
+    background-image: url("../../image/ecommerce_48.png") !important;
+}

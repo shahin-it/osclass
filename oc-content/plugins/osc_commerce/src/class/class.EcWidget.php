@@ -37,7 +37,7 @@ class EcWidget
                 break;
             case "product_sidebar":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
-                $model["products"] = $this->itemController->getProduct();
+                $model["products"] = $this->itemController->getProducts();
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productSidebar.php"));
                 break;
             case "contact_us":
@@ -49,7 +49,9 @@ class EcWidget
             case "payment_info":
                 break;
             case "product_grid":
-                $model["products"] = $this->itemController->getProduct();
+                if(!$model["products"]) {
+                    $model["products"] = $this->itemController->getProducts();
+                }
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
                 break;
             case "category_accordion":
@@ -58,7 +60,7 @@ class EcWidget
                 break;
             case "product_details":
                 if(!$model["product"]) {
-                    $model["product"] = $this->itemController->getProduct(array("pk_p_id"=> $arguments["id"]))[0];
+                    $model["product"] = $this->itemController->getProducts(array("pk_p_id"=> $arguments["id"]))[0];
                 }
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/productDetailsWidget.php"));
                 break;

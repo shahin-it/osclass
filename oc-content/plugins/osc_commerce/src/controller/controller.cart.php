@@ -40,6 +40,8 @@ class cart extends BaseModel
                     "id"=>$product["pk_p_id"],
                     "name"=>$product["s_name"],
                     "image"=>($product["s_image"] ?: "default.png"),
+                    "size"=>$product["s_size"],
+                    "color"=>$product["s_color"],
                     "quantity"=>$quantity,
                     "rate"=>$rate,
                     "price"=>$rate * $quantity
