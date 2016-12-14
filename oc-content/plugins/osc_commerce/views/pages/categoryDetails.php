@@ -5,6 +5,7 @@
             <div class="col-sm-3">
                 <div class="left-sidebar">
                     <?php renderWidget("category_accordion");?>
+                    <?php renderWidget("special_widget");?>
                 </div>
             </div>
 

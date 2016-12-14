@@ -35,6 +35,15 @@ class EcWidget
                 $model["categories"] = $this->itemController->getCategoryWithChild();
                 require_once(osc_plugin_path(PLUGIN_VIEW."widget/categoryModernWidget.php"));
                 break;
+            case "special_widget":
+                $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
+                $condition = array("b_is_onsale"=>"1");
+                if($model["condition"]) {
+                    $condition = $model["condition"];
+                }
+                $model["products"] = $this->itemController->getProducts($condition, array("max"=>5));
+                require_once(osc_plugin_path(PLUGIN_VIEW."widget/specialOfferWidget.php"));
+                break;
             case "product_sidebar":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
                 $model["products"] = $this->itemController->getProducts();

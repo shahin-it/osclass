@@ -1010,7 +1010,7 @@ body {
 
 
 /*left sidebar*/
-h2.widget-title {
+.widget-title {
     color: #80c74e;
     font-family: "Roboto",sans-serif;
     font-size: 18px;
@@ -1021,7 +1021,7 @@ h2.widget-title {
     text-transform: uppercase;
     z-index: 3;
 }
-h2.widget-title::after {
+.widget-title::after {
     border: 1px solid #f5f5f5;
     bottom: 12px;
     content: " ";
@@ -1503,4 +1503,87 @@ h2.widget-title::after {
     border-top: 1px solid #e6e6e6;
     margin-top: 20px;
     padding-top: 40px;
+}
+/*cart popup*/
+.cart-popup-wrap {
+    border: 1px solid #e6e6e6;
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px;
+    width: 350px;
+}
+.cart-popup-item {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px;
+}
+.cart-popup-item > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.cart-popup .product-image {
+    border: medium none;
+    padding: 0;
+}
+.cart-popup .product-image > img {
+    max-width: 56px;
+}
+.cart-popup .cart-popup-item > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.cart-popup .product-info > * {
+    margin-top: 5px;
+    padding-left: 20px;
+}
+.cart-popup .product-name {
+    font-size: 16px;
+    max-width: 200px;
+}
+.cart-popup .product-info .product-price {
+    color: #80C74E;
+    font-size: 16px;
+}
+.cart-popup .cart-popup-item > span {
+    cursor: pointer;
+    float: right;
+    margin-top: 22px;
+}
+.btn-row {
+    overflow: hidden;
+}
+.cart-popup-wrap .btn-row {
+    margin-top: 15px;
+}
+.cart-popup-wrap .btn-row .checkout {
+    float: right;
+}
+/*special offer*/
+.wi-spacial-product .widget-container {
+    border: 1px solid #e6e6e6;
+}
+.wi-spacial-product .product-block {
+    border: medium none;
+    margin-bottom: 0;
+    padding: 10px;
+    text-align: left;
+}
+.wi-spacial-product .product-block > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.wi-spacial-product .product-block .product-img-wrap img {
+    max-width: 60px;
+}
+.wi-spacial-product .product-block .product-info .product-name {
+    font-size: 16px;
+}
+.wi-spacial-product .product-info > * {
+    padding: 0 0 5px 20px;
+}
+.wi-spacial-product .product-info .previous-price {
+    color: #f00;
+    text-decoration: line-through;
+}
+.wi-spacial-product .product-info .current-price {
+    color: #80c74e;
+    font-size: 18px;
 }

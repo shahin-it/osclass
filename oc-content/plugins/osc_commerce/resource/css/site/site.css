@@ -9,3 +9,9 @@
 .sidebar-widget .fa {
     cursor: pointer;
 }
+.ec-widget.sidebar-widget .item-body {
+    padding-left: 10px;
+}
+.product-block .item {
+    display: inline-flex;
+}
