@@ -6,7 +6,7 @@
 .thumb-image-wrapper li a img {
     height: 64px;
 }
-.sidebar-widget .fa {
+.sidebar-widget .fa, .cart-popup-link {
     cursor: pointer;
 }
 .ec-widget.sidebar-widget .item-body {
@@ -14,4 +14,10 @@
 }
 .product-block .item {
     display: inline-flex;
+}
+.ec-widget {
+    margin-bottom: 30px;
+}
+.notification-popup {
+    z-index: 1000;
 }

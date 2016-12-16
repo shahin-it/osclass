@@ -16,7 +16,7 @@ class checkout extends BaseModel
         parent::__construct();
         if(!osc_is_web_user_logged_in()) {
 //            Params::setParam("HTTP_REFERER", osc_get_http_referer());
-            $this->doView(PLUGIN_VIEW . "redirect.php", array("url"=> osc_user_login_url()));
+            $this->doView(PLUGIN_VIEW . "redirect.php", array("url"=> osc_user_login_url()."&ref=checkout"));
         }
         $this->ajax = true;
         $this->dbUtil = DbUtil::newInstance();

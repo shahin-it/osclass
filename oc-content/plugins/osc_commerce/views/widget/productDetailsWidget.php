@@ -31,7 +31,7 @@ $product = $model["product"];
         <div class="col-sm-6">
             <div class="product-information">
                 <h2 class="product-name"><?php echo $product["s_name"]?></h2>
-                <span class="product-info webId">SKU: <?php echo $product["s_uuid"]?></span>
+                <span class="product-info webId">SKU: <?php echo $product["pk_p_id"]?></span>
                 <span class="product-info rating"><img src="<?php echo PRODUCT_IMAGE_BASE?>rating.png" alt=""></span>
                 <span class="product-info price">
                     <span class="label">Today's Price</span>

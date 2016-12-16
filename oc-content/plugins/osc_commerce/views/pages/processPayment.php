@@ -2,14 +2,13 @@
 $params = $model['params'];
 $cart = getAppUtil()->getCart();
 ?>
-<div class="osc-ec-template payment-page">
-    <?php if($params["paymentGateway"] == "BKASH") {?>
-        <div class="payment-inst bkash">
-            <div class="inst-panel left">
-                <div class="header">
-                    <h3>How to Make Payment using bKash Account</h3>
-                    <span class="title">If you have a bKash account then follow the steps below</span>
-                </div>
+<div class="section-ecommerce osc-ec-template payment-page">
+    <div class="container">
+        <div class="row">
+            <?php if($params["paymentGateway"] == "BKASH") {?>
+            <div class="col-sm-6">
+                <div class="row page-heading"><div class="col-sm-6"><h3>How to Make Payment using bKash Account</h3></div></div>
+                <span class="title">If you have a bKash account then follow the steps below</span>
                 <div class="body">
                     <div class="info-row">
                         <label class="label">STEP 1</label>
@@ -45,10 +44,9 @@ $cart = getAppUtil()->getCart();
                     </div>
                 </div>
             </div>
-            <div class="inst-panel right">
-                <div class="header">
-                    <h3>Having Problems? Call Support:  +880 1xxxxxxxxx</h3>
-                </div>
+
+            <div class="col-sm-6 content-main product-card padding-right">
+                <div class="row page-heading"><div class="col-sm-6"><h3>Having Problems? Call Support:  +880 1xxxxxxxxx</h3></div></div>
                 <div class="body">
                     <form action="<?php echo getSiteUrl("checkout", "bkashPayment")?>" method="post">
                         <div class="info-row">
@@ -67,13 +65,14 @@ $cart = getAppUtil()->getCart();
                             <label class="label">Transection ID</label>
                             <input type="text" class="" name="txnId">
                         </div>
-                        <div class="button-row">
-                            <span class="sui-button submit-button">Submit</span>
-                            <a class="sui-button cancel-button" href="<?php echo getSiteUrl("checkout", "checkout")?>">Back</a>
+                        <div class="btn-row">
+                            <span class="btn submit-button">Submit</span>
+                            <a class="btn cancel-button" href="<?php echo getSiteUrl("checkout", "checkout")?>">Back</a>
                         </div>
                     </form>
                 </div>
             </div>
+            <?php }?>
         </div>
-    <?php }?>
+    </div>
 </div>

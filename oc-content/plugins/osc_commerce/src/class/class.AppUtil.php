@@ -133,7 +133,7 @@ class AppUtil
                 $cart["grandTotal"] += $item["price"];
             }
         }
-        $cart["grandTotal"] = $cart["grandTotal"] + $cart["shippingCost"];
+        $cart["grandTotal"] = $cart["grandTotal"] ? ($cart["grandTotal"] + $cart["shippingCost"]) : 0.00;
         return $cart;
     }
 
@@ -180,7 +180,7 @@ class AppUtil
     }
 
     public function getBaseProductImage($id, $image, $size = "small") {
-        return PRODUCT_IMAGE_BASE.($image ? "product-".$id."/".$this->imageResulation($size)."_".$image : "default.png");
+        return PRODUCT_IMAGE_BASE.($image ? "product-".$id."/".$this->imageResulation($size)."_".$image : $size."_default.png");
     }
     public function getBaseProductImages($product, $size = "small") {
         $images = array();

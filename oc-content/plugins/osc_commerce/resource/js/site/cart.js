@@ -11,33 +11,50 @@ var CartManager = {
             success: function(resp) {
                 resp = resp.jq;
                 navigation.find(".drop-link").replaceWith(resp);
-                resp.updateUi();
-                success && success.call(this);
+                resp.updateSiteUi();
+                success && success.call(this, resp);
             }
         })
         $("body").css({paddingTop: navigation.outerHeight()})
+    },
+    bindRemoveCartItem: function(page) {
+        page.find(".remove-cartitem").click(function() {
+            page.loader();
+            sui.ajax({
+                url: app.ajaxBase("cart", "remove"),
+                data: this.jq.data(),
+                success: function() {
+                    location.reload();
+                }
+            });
+        })
     }
 }
 $(function() {
     var navigation = ".ecommerce-nav".jq;
-    var cartButton = $('<span class="cart-list-button"><span class="drop-link"><span class="drop-label cart-popup-link">' +
-        '<span class="cart-widget-text">0 Item | 0.00TK <i class="fa fa-shopping-cart"></i></span></span>' +
-        '</span></span>');
-    navigation.append(cartButton);
-    CartManager.reloadCartPopup();
+    var cartButton = navigation.find(".cart-list-button");
+    CartManager.reloadCartPopup(function (resp) {
+        CartManager.bindRemoveCartItem(resp.find(".cart-list-popup"));
+    });
+    var rePosition = true;
     $("body").on("click", ".drop-link .drop-label", function() {
         var popup = this.jq.next(".drop-child");
-        popup.slideToggle(function() {
-            popup.focus();
-        });
-        popup.one("blur", function() {
-            popup.slideToggle();
+		popup.stop().slideToggle(function() {
+			popup.focus();
+			if(!popup.is(":hidden")) {
+			    reposition = false;
+            }
+		}).one("blur", function() {
+            popup.stop().slideToggle();
         })
-        popup.position({
-            my: "right top+" + navigation.outerHeight(),
-            at: "right top",
-            of: ".ecommerce-nav"
-        })
+        if(rePosition) {
+            popup.position({
+                my: "right top+" + navigation.outerHeight(),
+                at: "right top",
+                of: ".ecommerce-nav"
+            })
+        }
+        return false;
     });
     var cartPage = $(".cart-details-page");
     var updateBtn = cartPage.find(".update-cartitem-btn");
@@ -58,14 +75,5 @@ $(function() {
     cartPage.find(".quantity-spinner").on("change", function() {
         updateBtn.show();
     })
-    cartPage.find(".remove-cartitem").click(function() {
-        cartPage.loader();
-        sui.ajax({
-            url: app.ajaxBase("cart", "remove"),
-            data: this.jq.data(),
-            success: function() {
-                location.href = app.base("cart", "details");
-            }
-        });
-    })
+    CartManager.bindRemoveCartItem(cartPage);
 });

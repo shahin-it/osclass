@@ -42,12 +42,12 @@ class EcWidget
                     $condition = $model["condition"];
                 }
                 $model["products"] = $this->itemController->getProducts($condition, array("max"=>5));
-                require_once(osc_plugin_path(PLUGIN_VIEW."widget/specialOfferWidget.php"));
+                require(osc_plugin_path(PLUGIN_VIEW."widget/specialOfferWidget.php"));
                 break;
             case "product_sidebar":
                 $this->dbUtil->makeDao("t_ec_product", "pk_p_id");
                 $model["products"] = $this->itemController->getProducts();
-                require_once(osc_plugin_path(PLUGIN_VIEW."widget/productSidebar.php"));
+                require(osc_plugin_path(PLUGIN_VIEW."widget/productSidebar.php"));
                 break;
             case "contact_us":
                 break;
@@ -61,7 +61,7 @@ class EcWidget
                 if(!$model["products"]) {
                     $model["products"] = $this->itemController->getProducts();
                 }
-                require_once(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
+                require(osc_plugin_path(PLUGIN_VIEW."widget/productGrid.php"));
                 break;
             case "category_accordion":
                 $model["categories"] = $this->itemController->getCategoryWithChild();

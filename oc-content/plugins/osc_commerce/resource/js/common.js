@@ -110,13 +110,7 @@ $.extend($.prototype, {
             if(!item.length) {
                 item = this.jq.parent().next(".item-body");
             }
-            if(item.is(":hidden")) {
-                item.show();
-                this.jq.removeClass("fa-plus").addClass("fa-minus");
-            } else {
-                item.hide();
-                this.jq.removeClass("fa-minus").addClass("fa-plus");
-            }
+            item.stop().slideToggle();
         })
     }
 });

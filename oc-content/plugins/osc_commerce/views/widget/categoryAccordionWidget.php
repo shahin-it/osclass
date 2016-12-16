@@ -8,12 +8,12 @@ $categories = $model["categories"] ?: array();
             <?php foreach($categories as $category) {
                 if($category["child"]) {
                     echo '<li>
-                        <a href="'.getSiteUrl("items", "category-details")."?id=".$category["pk_c_id"].'">'.$category['s_name'].'</a>
+                        <a href="'.getSiteUrl("items", "category-details")."?id=".$category["pk_c_id"].'">'.$category['s_name'].' ['.sizeof($category['products']).']'.'</a>
                         <span class="item-label fa fa-plus"></span>
                     </li>';
                     echo '<ul class="item-body" style="display: none">';
                     foreach ($category["child"] as $child) {
-                        echo '<li class="item-body"><a href="'.getSiteUrl("items", "category-details")."?id=".$child["pk_c_id"].'">'.$child['s_name'].'</a></li>';
+                        echo '<li class="item-body"><a href="'.getSiteUrl("items", "category-details")."?id=".$child["pk_c_id"].'">'.$child['s_name'].' ['.sizeof($child['products']).']'.'</a></li>';
                     }
                     echo '</ul>';
                 } else {

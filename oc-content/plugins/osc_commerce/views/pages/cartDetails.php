@@ -4,7 +4,9 @@ $cartObj = $model["cartObj"] ?: null;
 <div class="section-ecommerce layout-left-full-width osc-ec-template cart-details-page">
     <div class="container">
         <div class="row page-heading">
-            <div class="col-sm-12"><h1>Cart Details</h1></div>
+            <div class="col-sm-8"><h1>Cart Details</h1></div>
+            <div class="col-sm-2"><a href="<?php echo getSiteUrl("cart", "empty") ?>" class="empty-cartitem-btn btn">Empty Cart</a></div>
+            <div class="col-sm-2"><a href="#!" class="update-cartitem-btn btn" style="display: none">Update Cart</a></div>
         </div>
         <div class="row">
             <div class="col-sm-12 content-main">
@@ -20,7 +22,7 @@ $cartObj = $model["cartObj"] ?: null;
                             <td class="price">Price</td>
                             <td class="quantity">Quantity</td>
                             <td class="total">Total</td>
-                            <td></td>
+                            <td>Action</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -42,7 +44,7 @@ $cartObj = $model["cartObj"] ?: null;
                             <td class="cart_quantity">
                                 <div class="cart_quantity_button">
                                     <a class="cart_quantity_up" href=""> + </a>
-                                    <input class="cart_quantity_input quantity-spinner" name="quantity" value="1" autocomplete="off"
+                                    <input class="cart_quantity_input quantity-spinner" name="quantity" value="<?php echo $product["quantity"]?>" autocomplete="off"
                                            size="2" type="number" data-id="<?php echo $product["id"]?>" min="1">
                                     <a class="cart_quantity_down" href=""> - </a>
                                 </div>
@@ -51,7 +53,7 @@ $cartObj = $model["cartObj"] ?: null;
                                 <p class="cart_total_price"><?php echo toPrice($product["price"]).CURRENCY_SYMBOL?></p>
                             </td>
                             <td class="cart_delete actions remove">
-                                <a class="cart_quantity_delete remove-cartitem" href="#" title="Remove" data-id="<?php echo $product["id"]?>"><i class="fa fa-times"></i></a>
+                                <a class="cart_quantity_delete remove-cartitem" href="#!" title="Remove" data-id="<?php echo $product["id"]?>"><i class="fa fa-times"></i></a>
                             </td>
                         </tr>
                         <?php }?>

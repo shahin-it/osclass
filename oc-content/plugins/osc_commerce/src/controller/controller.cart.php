@@ -39,7 +39,7 @@ class cart extends BaseModel
                 $productData = array(
                     "id"=>$product["pk_p_id"],
                     "name"=>$product["s_name"],
-                    "image"=>($product["s_image"] ?: "default.png"),
+                    "image"=>$product["s_image"],
                     "size"=>$product["s_size"],
                     "color"=>$product["s_color"],
                     "quantity"=>$quantity,

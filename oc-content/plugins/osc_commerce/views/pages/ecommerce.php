@@ -6,6 +6,7 @@
                 <div class="left-sidebar">
                     <?php renderWidget("category_accordion");?>
                     <?php renderWidget("special_widget");?>
+                    <?php renderWidget("special_widget", array("title"=> "New Arrival", "condition"=> array("b_is_new"=> "1")));?>
                 </div>
             </div>
 
